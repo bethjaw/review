@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Directors</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+    <link rel='stylesheet' href='main.css'>
+  </head>
+  <body>
+
+    <section class="hero is-dark">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Directors</h1>
+          <h2 class="subtitle">and their movies...</h2>
+        </div>
+      </div>
+    </section>
+
+    <div class="tabs is-medium">
+      <ul>
+        <li class="is-dark"><a href='/'>Home</a></li>
+        <li class="is-dark"><a href='/directors'>See Directors</a></li>
+        <li class="is-dark"><a href='/actors'>See Actors</a></li>
+      </ul>
+    </div>
+
+
+
+    {{#each directors}}
+    <h1>{{name}}</h1>
+    <p>{{title}}</p>
+    
+    {{/each}}
+
+
+
+
+  </body>
+</html>

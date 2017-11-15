@@ -1,0 +1,51 @@
+directors in route
+
+[ anonymous {
+    id: 1,
+    title: 'Pirates of the Caribbean: The Curse of the Black Pearl',
+    director_id: 1,
+    name: 'Gore Verbinski',
+    role: 'Director' },
+  anonymous {
+    id: 3,
+    title: 'Harry Potter and the Order of the Phoenix',
+    director_id: 3,
+    name: 'David Yates',
+    role: 'Director' },
+  anonymous {
+    id: 5,
+    title: 'Love Actually',
+    director_id: 5,
+    name: 'Richard Curtis',
+    role: 'Director' } ]
+
+------------------------------------
+actors:
+    here [ anonymous {
+        id: 2,
+        title: 'Pirates of the Caribbean: The Curse of the Black Pearl',
+        director_id: 1,
+        movies_id: 1,
+        people_id: 2,
+        name: 'Johnny Depp',
+        role: 'Actor' },
+      anonymous {
+        id: 4,
+        title: 'Harry Potter and the Order of the Phoenix',
+        director_id: 3,
+        movies_id: 2,
+        people_id: 4,
+        name: 'Emma Watson',
+        role: 'Actor' },
+      anonymous {
+        id: 6,
+        title: 'Love Actually',
+        director_id: 5,
+        movies_id: 3,
+        people_id: 6,
+        name: 'Hugh Grant',
+        role: 'Actor' } ]
+
+        directors [ anonymous { name: 'Gore Verbinski', role: 'Director', director_id: 1 },
+          anonymous { name: 'David Yates', role: 'Director', director_id: 3 },
+          anonymous { name: 'Richard Curtis', role: 'Director', director_id: 5 } ]
