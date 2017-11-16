@@ -32,6 +32,10 @@
       <h1 class="subtitle movie">{{title}}</h1>
     {{/each}}
 
+    
+
+
+
 
     <h3>Add a Movie</h3>
       <form name="form" action='/newmovie' method='post'>
@@ -40,12 +44,12 @@
         <label>Movie Director</label>
         <input class='input' type='text' name='name' value=''>
         <div class="select">
-          <select name='role' value='role'>
-            <option>Director</option>
-            <option>Actor</option>
+          <select name='role' value=''>
+            <option value='Director'>Director</option>
+            <option value='Actor'>Actor</option>
           </select>
         </div>
-  
+
         <button class='button'>Add</button>
 
     </form>

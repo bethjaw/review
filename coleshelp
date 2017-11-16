@@ -1,0 +1,61 @@
+//Query
+function joinTables() {
+  return db('books').select('*').innerJoin('book_author', 'books.id','book_id').innerJoin('authors', 'author_id', 'authors.id')
+  .then((books) =>{
+   var newBooks = [];
+    for (var i = 0; i < books.length; i++) {
+    books[i].authors = [];
+    var obj = {
+      name: '',
+      authOrder: 1,
+    };
+    var insert = true;
+    for (var j = 0; j < newBooks.length; j++) {
+      if (newBooks[j].book_id === books[i].book_id) {
+        insert = false;
+        obj.name = books[i].firstName + ' ' + books[i].lastName;
+        obj.authOrder = books[i].author_id;
+        newBooks[j].authors.push(obj);
+      }
+    }
+    if (insert) {
+      obj.name = books[i].firstName + ' ' + books[i].lastName;
+      obj.authOrder = books[i].author_id;
+      books[i].authors.push(obj);
+      newBooks.push(books[i]);
+    }
+  }
+  console.log(newBooks[0].authors)
+  return newBooks;
+})
+}
+
+
+//route
+
+app.get('/books', (req, res)=>{
+  queries.joinTables()
+  .then(joinTables => { console.log(joinTables)
+    // res.send(joinTables)
+    res.send(joinTables)
+    // res.render('books', {joinTables:joinTables})
+  })
+})
+
+//hbs
+
+<main>
+    {{#each joinTables}}
+    <div class='eachBook'>
+        <img src="{{this.bookCoverURL}}" alt="{{this.bookTitle}}">
+      <div class='bookDetails'>
+        <h3>{{this.bookTitle}}</h3>
+          {{#each authors}}
+        <h4>{{name}}</h4>
+          {{/each}}
+        <p>{{this.bookGenre}}</p>
+        <p class='desc'>{{this.bookDescription}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </main>
